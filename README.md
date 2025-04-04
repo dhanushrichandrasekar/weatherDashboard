@@ -45,6 +45,19 @@ weatherDashboard/
 
 🎬 **[Watch the Video Demo](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/weatherAppDemo.mp4)**
 
+## 📷 Screenshots
+
+### 🌞 **Light Mode**
+![Weather](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/maduraiWeather.png)
+![TemperatureTrendandForecast](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/maduraiForecast.png)
+![iconandFooter](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/Footer.png)
+
+### 🌙 **Dark Mode**
+![Weather](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/delhiWeather.png)
+![TemperatureTrendandForecast](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/delhiForecast.png)
+![iconandFooter](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/iconGuide.png)
+
+
 ## 🛠️ Installation
 
 1️⃣ Clone the repository:
@@ -108,18 +121,6 @@ If your background color changes smoothly, GSAP is successfully installed! 🎉
 3️⃣ View real-time weather updates with beautiful transitions! 🌈  
 4️⃣ Explore interactive charts for temperature trends 📊  
 5️⃣ Toggle dark mode for a different experience 🌙  
-
-## 📷 Screenshots
-
-### 🌞 **Light Mode**
-![Weather](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/maduraiWeather.png)
-![TemperatureTrendandForecast](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/maduraiForecast.png)
-![iconandFooter](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/Footer.png)
-
-### 🌙 **Dark Mode**
-![Weather](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/delhiWeather.png)
-![TemperatureTrendandForecast](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/delhiForecast.png)
-![iconandFooter](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/abd02111b141ccff77cb364759f2f9621f873e53/screenshots/iconGuide.png)
 
 ## 🌟 Contributing
 
