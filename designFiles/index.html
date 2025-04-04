@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast with Graphs</title>
+    <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <button class="theme-btn active" data-theme="light">
+                <i class="fas fa-sun"></i>
+                <span>Light</span>
+            </button>
+            <button class="theme-btn" data-theme="dark">
+                <i class="fas fa-moon"></i>
+                <span>Dark</span>
+            </button>
+        </div>
+
+        <header>
+            <h1 class="weather-heading">Weather Dashboard</h1>
+            <p class="weather-subheading">Get accurate weather updates with visual analytics</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Enter city name..." spellcheck="true">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <button class="location-btn" title="Use current location"><i class="fas fa-location-arrow"></i></button>
+        </div>
+
+        <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="metric">°C</button>
+            <button class="unit-btn" data-unit="imperial">°F</button>
+        </div>
+
+        <div class="status-message loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+
+        <div class="status-message error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>City not found. Please try another location.</p>
+        </div>
+
+        <div class="weather-card">
+            <div class="current-weather">
+                <div class="weather-info">
+                    <h2 class="city-name"></h2>
+                    <p class="weather-description"></p>
+                    <div class="temperature"></div>
+                </div>
+                <div class="weather-icon-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" alt="Weather icon" class="weather-icon">
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon"><i class="fas fa-tint"></i></div>
+                    <div class="detail-value humidity"></div>
+                    <div class="detail-label">Humidity</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon"><i class="fas fa-wind"></i></div>
+                    <div class="detail-value wind-speed"></div>
+                    <div class="detail-label">Wind Speed</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon"><i class="fas fa-sun"></i></div>
+                    <div class="detail-value uv-index"></div>
+                    <div class="detail-label">UV Index</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graph-container">
+            <h3 class="graph-title"><i class="fas fa-chart-line"></i> Temperature Trend (Next 24 Hours)</h3>
+            <div class="chart-container">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+        </div>
+
+        <div class="forecast-container">
+            <h3 class="section-title"><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
+            <p class="forecast-description">Plan ahead with daily weather predictions including temperature ranges and conditions</p>
+            <div class="forecast-grid">
+                <div class="forecast-card">
+                    <div class="forecast-day"></div>
+                    <div class="forecast-date"></div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" alt="Forecast icon" class="forecast-icon">
+                    <div class="forecast-temp">
+                        <span class="forecast-max"></span>
+                        <span class="forecast-min"></span>
+                    </div>
+                    <div class="forecast-details">
+                        <div class="forecast-detail">
+                            <span class="forecast-detail-label"></span>
+                            <span class="forecast-detail-value"></span>
+                        </div>
+                        <div class="forecast-detail">
+                            <span class="forecast-detail-label"></span>
+                            <span class="forecast-detail-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legend-container collapsed">
+            <div class="legend-header">
+                <h3 class="section-title"><i class="fas fa-cloud"></i> Weather Icon Guide</h3>
+                <button class="legend-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="legend-content">
+                <p class="legend-description">Understand what each weather icon represents</p>
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2698/2698194.png" alt="Clear sky" class="legend-icon">
+                        <div class="legend-text">Clear Sky (Day)</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="Clear night" class="legend-icon">
+                        <div class="legend-text">Clear Sky (Night)</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" alt="Partly cloudy" class="legend-icon">
+                        <div class="legend-text">Partly Cloudy</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt="Cloudy" class="legend-icon">
+                        <div class="legend-text">Cloudy</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4088/4088981.png" alt="Rain" class="legend-icon">
+                        <div class="legend-text">Rain</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="Thunderstorm" class="legend-icon">
+                        <div class="legend-text">Thunderstorm</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2315/2315309.png" alt="Snow" class="legend-icon">
+                        <div class="legend-text">Snow</div>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1197/1197102.png" alt="Mist" class="legend-icon">
+                        <div class="legend-text">Mist/Fog</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="weather-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Weather Sources</h4>
+            <ul>
+                <li><a href="https://www.weather.gov/" target="_blank">NOAA</a></li>
+                <li><a href="https://www.metoffice.gov.uk/" target="_blank">Met Office</a></li>
+              <li><a href="https://openweathermap.org/" target="_blank">OpenWeather</a></li>
+            
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="https://www.weather.com" target="_blank">Live Radar</a></li>
+                <li><a href="https://www.weather.gov/alerts" target="_blank">Weather Alerts</a></li>
+
+                <li><a href="https://weather.com/forecast" target="_blank">Extended Forecast</a></li>
+
+
+              </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                    <a href="https://twitter.com/NWS" target="_blank" title="National Weather Service Twitter">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/NOAA" target="_blank" title="NOAA Facebook">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nws/" target="_blank" title="NWS Instagram">
+                        <i class="fab fa-instagram-square"></i>
+
+                    </a>
+        
+                  </div>
+            </div>
+    
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© 2025 WeatherDash. All weather data is provided for informational purposes only.</p>
+          <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/contact">Contact Us</a>
+          </div>
+        </div>
+      </footer>
+<script src="script.js"></script>
+</body>
+</html>
