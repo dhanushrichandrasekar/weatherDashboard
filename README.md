@@ -43,7 +43,7 @@ weatherDashboard/
 
 ## 📽️ Demo
 
-🎬 **[Watch the Website Demo](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/e0d77dea4f867b5f43aa60ec6da67b1d528968af/weatherAppDemo.mp4)**
+🎬 **[Watch the Website Demo](https://github.com/dhanushrichandrasekar/weatherDashboard/blob/c2da452f20d1067664c8ddf62289a30300598fe6/weatherAppDemo.mp4)**
 
 ## 📷 Screenshots
 
