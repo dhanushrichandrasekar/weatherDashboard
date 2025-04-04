@@ -70,7 +70,7 @@ weatherDashboard/
  cd weatherDashboard
 ```
 
-4️⃣ Open `index.html`from designFiles folder! 🚀
+3️⃣ Open `index.html`from designFiles folder! 🚀
 
 ## 🎥 Installing GSAP
 
